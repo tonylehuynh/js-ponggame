@@ -41,7 +41,6 @@ window.addEventListener("keydown", changeDirection);
 resetButton.addEventListener("click", resetGame);
 
 gameStart();
-changeDirection();
 
 
 function gameStart(){
@@ -94,7 +93,10 @@ function createBall(){
 	ballY = gameHeight / 2;
 	drawBall(ballX, ballY);
 };
-function moveBall(){};
+function moveBall(){
+	ballX += (ballSpeed * ballXDirection);
+	ballY += (ballSpeed * ballYDirection);
+};
 function drawBall(ballX, ballY){
 	  context.fillStyle = ballColor;
 	  context.strokeStyle = ballBorderColor;
