@@ -41,10 +41,22 @@ window.addEventListener("keydown", changeDirection);
 resetButton.addEventListener("click", resetGame);
 
 gameStart();
-drawPaddles();
 
-function gameStart(){};
-function nextTick(){};
+
+function gameStart(){
+	createBall();
+	nextTick();
+};
+function nextTick(){
+	intervalID = setTimeout(() => {
+		clearBoard();
+		drawPaddles();
+		moveBall();
+		drawBall(ballX, ballY);
+		checkCollision();
+		nextTick();
+	}, 10);
+};
 function clearBoard(){};
 function drawPaddles(){
 	context.strokeStyle = paddleBorder;
@@ -57,9 +69,10 @@ function drawPaddles(){
 	context.fillRect(paddle2.x, paddle2.y, paddle2.width, paddle2.height);
 	context.strokeRect(paddle2.x, paddle2.y, paddle2.width, paddle2.height);
 };
+
 function createBall(){};
 function moveBall(){};
-function drawBall(){};
+function drawBall(ballX, ballY){};
 function checkCollision(){};
 function changeDirection(){};
 function updateScore(){};
