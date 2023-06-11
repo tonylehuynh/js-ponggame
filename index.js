@@ -41,6 +41,7 @@ window.addEventListener("keydown", changeDirection);
 resetButton.addEventListener("click", resetGame);
 
 gameStart();
+changeDirection();
 
 
 function gameStart(){
@@ -77,6 +78,35 @@ function createBall(){};
 function moveBall(){};
 function drawBall(ballX, ballY){};
 function checkCollision(){};
-function changeDirection(){};
+function changeDirection(event){
+	const keyPressed = event.keyCode;
+	const paddle1Up = 87;
+	const paddle1Down = 83;
+	const paddle2Up = 38;
+	const paddle2Down = 40;
+
+	switch (keyPressed) {
+		case (paddle1Up):
+			if(paddle1.y > 0){
+				paddle1.y -= paddleSpeed;
+			}
+			break;
+		case (paddle1Down):
+			if(paddle1.y < gameHeight - paddle1.height){
+				paddle1.y += paddleSpeed;
+			}
+			break;
+		case (paddle2Up):
+			if(paddle2.y > 0){
+				paddle2.y -= paddleSpeed;
+			}
+			break;
+		case (paddle2Down):
+			if(paddle2.y < gameHeight - paddle2.height){
+				paddle2.y += paddleSpeed;
+			}
+			break;
+	}
+};
 function updateScore(){};
 function resetGame(){};
