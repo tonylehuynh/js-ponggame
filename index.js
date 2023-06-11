@@ -106,7 +106,28 @@ function drawBall(ballX, ballY){
 	  context.stroke();
 	  context.fill();
 };
-function checkCollision(){};
+function checkCollision(){
+	// If ball hits top/bottom of board, reverse it's direction
+	if(ballY <= 0 + ballRadius){
+		ballYDirection *= -1;
+	}
+	else if(ballY >= gameHeight - ballRadius){
+		ballYDirection *= -1;
+	}
+	// If ball hits left/right corner, update player scores
+	if(ballX <= 0){
+		player2Score+=1;
+		updateScore();
+		createBall();
+		return;
+	}
+	if(ballX >= gameWidth){
+		player1Score+=1;
+		updateScore();
+		createBall();
+		return;
+	}
+};
 function changeDirection(event){
 	const keyPressed = event.keyCode;
 	const paddle1Up = 87;
