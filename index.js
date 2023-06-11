@@ -111,7 +111,7 @@ function checkCollision(){
 	if(ballY <= 0 + ballRadius){
 		ballYDirection *= -1;
 	}
-	else if(ballY >= gameHeight - ballRadius){
+	if(ballY >= gameHeight - ballRadius){
 		ballYDirection *= -1;
 	}
 	// If ball hits left/right corner, update player scores
@@ -126,6 +126,21 @@ function checkCollision(){
 		updateScore();
 		createBall();
 		return;
+	}
+
+	if (ballX <= (paddle1.x + paddle1.width + ballRadius)){
+		if (ballY > paddle1.y && ballY < paddle1.y + paddle1.height) {
+			ballX = (paddle1.x + paddle1.width) + ballRadius; // if ball gets stuck
+			ballXDirection *= -1;
+			ballSpeed += 0.5;
+		}
+	}
+	if (ballX >= (paddle2.x - ballRadius)) {
+		if (ballY > paddle2.y && ballY < paddle2.y + paddle2.height) {
+			ballX = paddle2.x - ballRadius; // if ball gets stuck
+			ballXDirection *= -1;
+			ballSpeed += 0.5;
+		}
 	}
 };
 function changeDirection(event){
