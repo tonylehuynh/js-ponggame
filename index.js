@@ -8,7 +8,7 @@ const boardBackground = "forestgreen";
 const paddle1Color = "lightblue";
 const paddle2Color = "red";
 const paddleBorder = "black";
-const ballColor = "yello";
+const ballColor = "yellow";
 const ballBorderColor = "black";
 const ballRadius = 12.5;
 const paddleSpeed = 50;
@@ -76,7 +76,15 @@ function drawPaddles(){
 
 function createBall(){};
 function moveBall(){};
-function drawBall(ballX, ballY){};
+function drawBall(ballX, ballY){
+	  context.fillStyle = ballColor;
+	  context.strokeStyle = ballBorderColor;
+	  context.lineWidth = 2;
+	  context.beginPath();
+	  context.arc(ballX, ballY, ballRadius, 0, 2 * Math.PI);
+	  context.stroke();
+	  context.fill();
+};
 function checkCollision(){};
 function changeDirection(event){
 	const keyPressed = event.keyCode;
