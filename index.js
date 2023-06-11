@@ -36,3 +36,8 @@ let paddle2 = {
 	y: gameHeight - 100
 };
 
+
+window.addEventListener("keydown", changeDirection);
+resetButton.addEventListener("click", resetGame);
+
+gameStart();
