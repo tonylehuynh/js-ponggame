@@ -2,7 +2,7 @@
 
 Simple game of Pong !
 
-![PongGame](Placeholder.jpg)
+![PongGame](Pong.jpg)
 
 
 
